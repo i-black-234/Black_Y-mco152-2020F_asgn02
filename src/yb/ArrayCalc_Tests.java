@@ -24,13 +24,12 @@ public class ArrayCalc_Tests {
 		assertEquals(-2, arrayCalc.getSum(intArr));
 	}
 	
-	@Test
-	// this test checks that no error occurs when an empty array is given
-	// personally I think an error should be thrown, but that is not the point
+	@Test (expected = IndexOutOfBoundsException.class)
+	// this test checks that an exception is thrown when an empty array is given
 	public void emptyArrayReturns0() {
 		int[] intArr = {}; 
 		arrayCalc = new ArrayCalc();
-		assertEquals(0, arrayCalc.getSum(intArr));
+		arrayCalc.getSum(intArr);
 	}
 	
 	@Test
@@ -70,7 +69,7 @@ public class ArrayCalc_Tests {
 	public void getMinValueReturnsMin() {
 		int[] intArr = {5, 2, 3, 4}; 
 		arrayCalc = new ArrayCalc();
-		assertEquals(1, arrayCalc.getMinValue(intArr));
+		assertEquals(2, arrayCalc.getMinValue(intArr));
 	}
 	
 	@Test
